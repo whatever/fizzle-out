@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>the future is already here... just not evenly distributed</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.js"></script>
+        <script src="/build.js"></script>
+        <script>
+            window.addEventListener("load", function() {
+                var el = document.getElementById("life-is-short");
+                var ap = new yikes.Fizzle(el);
+
+                (function loop() {
+                    ap.update();
+                    ap.draw();
+                    requestAnimationFrame(loop);
+                }());
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="life-is-short" height=400 width=400></canvas>
+    </body>
+</html>

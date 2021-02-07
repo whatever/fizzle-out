@@ -2,27 +2,35 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: ["@babel/polyfill", "./src/index.js"],
     output: {
-        filename: "build.js",
-        path: path.resolve(__dirname, "dist"),
+        library: "yikes",
+        libraryTarget: "var",
+        path: path.join(__dirname, "dist"),
+        filename: "build.js"
     },
-    resolve: {
-        /*
-        fallback: {
-            "assert": require.resolve("assert/"),
-            "buffer": require.resolve("buffer/"),
-            "stream": require.resolve("stream-browserify"),
-            "zlib": require.resolve("browserify-zlib"),
-        },
-        */
+    externals: {
+        three: "THREE"
     },
-    plugins: [
-        /*
-      new webpack.ProvidePlugin({
-        Buffer: ['buffer', 'Buffer'],
-        process: 'process/browser',
-      }),
-      */
-    ],
+    devServer: {
+        port: 8080,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env'],
+                    plugins: ["@babel/transform-runtime"]
+                }
+            }
+        ]
+    },
+    experiments: {
+        syncWebAssembly: true,
+        topLevelAwait: true,
+        asyncWebAssembly: true,
+    },
 };
