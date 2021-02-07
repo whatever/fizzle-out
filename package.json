@@ -1,0 +1,25 @@
+{
+  "name": "fizzle-out",
+  "version": "0.0.1",
+  "description": ":fish_cake:",
+  "main": "src/index.js",
+  "scripts": {
+    "ayyy": "webpack --mode development",
+    "lmao": "webpack-dev-server --config webpack.config.js",
+    "test": "echo nah && exit"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatever/fizzle-out.git"
+  },
+  "keywords": ["fuck", "fuck", "party", "party"],
+  "author": "Matt <3",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/whatever/fizzle-out#readme",
+  "devDependencies": {
+    "webpack": "^5.21.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
